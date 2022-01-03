@@ -42,9 +42,18 @@ console.log("-------Question 2-------");
 const str =
   "  Perhaps The Easiest-to-understand   Case   For Reduce Is   To Return   The Sum Of  All The Elements In  An Array  ";
 
-console.log(
+/*console.log(
   str
     .replace(/[^A-Z0-9]+/gi, " ")
     .toLowerCase()
     .trim()
-);
+);*/
+const newStr = str
+  .replaceAll("-", " ")
+  .split(" ")
+  .filter((n) => n)
+  .join(" ")
+  .toLowerCase()
+  .trim();
+
+console.log(newStr);
