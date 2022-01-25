@@ -14,9 +14,11 @@ const appendTodoInUI = (todo, index) => {
 
     const isComplete = todo.isComplete;
     if (isComplete) {
-      todoContext.style.color = "black";
+      //todoContext.style.color = "black";
+      todoContext.classList.add("black");
     } else {
-      todoContext.style.color = "red";
+      //todoContext.style.color = "red";
+      todoContext.classList.add("red");
     }
     todo.isComplete = !isComplete;
   });
@@ -43,13 +45,14 @@ const onAddTodos = async (todotask) => {
 };
 
 const onClickAddTodos = async () => {
-  const text = document.getElementById("todoInput").value;
-  const newTodos = { content: text, isCompleted: false };
+  const todoInputValue = document.getElementById("todoInput");
+  const newTodo = { content: todoInputValue.value, isCompleted: false };
   // async call to mocked api
-  await todoApi.addTodo(newTodos);
+  await todoApi.addTodo(newTodo);
   // if success, append to UI
-  appendTodoInUI(newTodos, todoCount);
+  appendTodoInUI(newTodo, todoCount);
   todoCount++;
+  todoInputValue.value = "";
 };
 
 const addButton = document.getElementById("addButton");

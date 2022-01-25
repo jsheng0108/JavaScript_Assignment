@@ -1,0 +1,12 @@
+li {
+  user-select: none;
+  cursor: pointer;
+}
+
+.black {
+  color: black;
+}
+
+.red {
+  color: red;
+}
